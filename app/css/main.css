@@ -1,0 +1,52 @@
+/* Base Elements */
+
+body {
+    margin-top: 70px;
+    font-size: 16px;
+}
+
+.area {
+  margin: 2rem 0;
+}
+
+.header-menu a {
+  margin-right: 1rem;
+}
+
+.profile-image {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border: 2px solid #eaeaea;
+  border-radius: 5px;
+}
+
+.profile-image img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.thePost {
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+}
+
+.thePost .profile-image {
+  -webkit-flex: 1 0 0;
+  flex: 1 0 0;
+}
+
+.postInfo {
+  padding: 0;
+  padding-left: 10px;
+  -webkit-flex: 5 0 0;
+  flex: 5 0 0;
+}
+
+.thePost-date {
+  font-size: 1rem;
+  color: #999;
+}
