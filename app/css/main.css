@@ -9,8 +9,30 @@ body {
   margin: 2rem 0;
 }
 
+.logo img{
+  width: 100px;
+  margin-top: 0.5rem;
+}
+
+.header-menu {
+  margin-top: 1rem;
+}
+
 .header-menu a {
   margin-right: 1rem;
+}
+
+.login-box {
+  width: 250px;
+  height: 300px;
+  background-color: #fafafa;
+  position: absolute;
+  z-index: 9999;
+  right: 2rem;
+
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.18);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.18);
 }
 
 .profile-image {
@@ -22,9 +44,14 @@ body {
 }
 
 .profile-image img {
-  display: block;
-  width: 100%;
+  display: inline-block;
   margin: 0 auto;
+  width: 70px;
+  height: auto;
+}
+
+.waste-section {
+  padding: 0;
 }
 
 .thePost {
@@ -35,15 +62,12 @@ body {
 }
 
 .thePost .profile-image {
-  -webkit-flex: 1 0 0;
-  flex: 1 0 0;
+  flex-shrink: 0;
 }
 
 .postInfo {
   padding: 0;
   padding-left: 10px;
-  -webkit-flex: 5 0 0;
-  flex: 5 0 0;
 }
 
 .thePost-date {

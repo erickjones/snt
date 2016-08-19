@@ -20,6 +20,11 @@
                 templateUrl: "app/main/main.html",
                 controller: "MainController"
             })
+              .state('profile', {
+                url: "/profile",
+                templateUrl: "app/profile/profile-view.html",
+                controller: "EditProfileController"
+            })
       			  .state('follow', {
       				url: "/follow-users",
       				templateUrl: "app/follow/follow.html",

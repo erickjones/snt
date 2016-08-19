@@ -20,8 +20,10 @@
           file: file
         }).progress(function(evt){
           console.log("firing");
-        }).success(function(data){
-
+        }).success(function(response){
+          localStorage.setItem('User-Data', JSON.stringify(response));
+          console.log('Image changed')
+          $state.reload();
         }).error(function(error){
           console.log(error);
         })
@@ -34,7 +36,8 @@
         username: $scope.user.username
       }
 
-      $http.post('api/profile/updateUsername', request).success(function(){
+      $http.post('api/profile/updateUsername', request).success(function(response){
+        localStorage.setItem('User-Data', JSON.stringify(response));
         console.log("success");
       }).error(function(error){
         console.log("error");
@@ -47,8 +50,8 @@
         bio: $scope.user.bio
       }
 
-      $http.post('api/profile/updateBio', request).success(function(){
-        console.log("success");
+      $http.post('api/profile/updateBio', request).success(function(response){
+        localStorage.setItem('User-Data', JSON.stringify(response));
       }).error(function(error){
         console.log(error);
       });

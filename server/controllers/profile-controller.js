@@ -25,9 +25,15 @@ module.exports.updatePhoto = function (req, res){
                         console.log("failed save")
                         res.json({status: 500})
                     } else {
-                        console.log("save successful");
-
-                        res.json({status: 200})
+                      res.json({
+                        email: user.email,
+                        _id: user._id,
+                        username: user.username,
+                        image: user.image,
+                        following: user.following,
+                        followers: user.followers,
+                        bio: user.bio
+                      });
                     }
                 })
             })
@@ -40,6 +46,7 @@ module.exports.updateUsername = function (req, res){
     var userId = req.body.userId;
 
     User.findById(userId, function (err, userData){
+      console.log('NAME UPD', userData)
         var user = userData;
         user.username = username;
 
@@ -48,8 +55,15 @@ module.exports.updateUsername = function (req, res){
                 console.log("fail");
                 res.json({status: 500});
             } else {
-                console.log("success");
-                res.json({status: 200});
+              res.json({
+                email: user.email,
+                _id: user._id,
+                username: user.username,
+                image: user.image,
+                following: user.following,
+                followers: user.followers,
+                bio: user.bio
+              });
             }
         })
     });
@@ -60,6 +74,8 @@ module.exports.updateBio = function (req, res){
     var userId = req.body.userId;
 
     User.findById(userId, function (err, userData){
+      console.log('BIO UPD', userData)
+
         var user = userData;
         user.bio = bio;
 
@@ -68,9 +84,15 @@ module.exports.updateBio = function (req, res){
                 console.log("fail");
                 res.json({status: 500});
             } else {
-                console.log("success");
-                 res.json({status: 200});
-
+              res.json({
+                email: user.email,
+                _id: user._id,
+                username: user.username,
+                image: user.image,
+                following: user.following,
+                followers: user.followers,
+                bio: user.bio
+              });
             }
         })
     });

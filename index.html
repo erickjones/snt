@@ -1,47 +1,73 @@
 <html ng-app="snt">
-    <head>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="app/css/main.css" />
-    </head>
+<head>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="app/css/main.css" />
+</head>
 
-      <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
-        <div class="container">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
+  <div class="container">
 
-            <div ng-show="!loggedIn">
-              <input type="text" ng-model="login.email">
-              <input type="password" ng-model="login.password">
-              <button ng-click="logUserIn()">Login</button>
-              <a ui-sref="signUp">Create An Account</a>
-            </div>
+    <div class="row">
 
-            <div ng-show="loggedIn" class="header-menu">
-              <a ui-sref="editProfile">My profile</a>
-              <a ui-sref="follow">Follow Users</a>
-              <a ng-click="logOut();">Logout</a>
-            </div>
+      <div class="col-md-4">
+
+        <div class="logo">
+          <a ui-sref="main">
+            <img src="http://orig00.deviantart.net/fae8/f/2011/288/4/5/coca_cola_logo_png_by_ivettecaro-d4cxaok.png" alt="" />
+          </a>
         </div>
-    </nav>
-    <body>
+
+      </div>
+
+      <div class="col-md-8 header-menu">
+
+        <div ng-show="!loggedIn">
+          <input type="text" ng-model="login.email">
+          <input type="password" ng-model="login.password">
+          <button ng-click="logUserIn()">Login</button>
+          <a ui-sref="signUp">Create An Account</a>
+          
+          <div class="login-box">
+
+          </div>
+        </div>
+
+        <div ng-show="loggedIn">
+          <a ui-sref="main">Timeline</a>
+          <a ui-sref="profile">My profile</a>
+          <a ui-sref="follow">Follow Users</a>
+          <a ng-click="logOut();">Logout</a>
+        </div>
+
+      </div>
+
+    </div>
 
 
-        <div ui-view class="container"></div>
-    </body>
+  </div>
 
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <script src="app/app.js"></script>
-
-    <!-- Controllers -->
-    <script src="app/signup/signup-controller.js"></script>
-    <script src="app/navigation/navigation-controller.js"></script>
-    <script src="app/profile/edit-profile-controller.js"></script>
-    <script src="app/main/main-controller.js"></script>
-	  <script src="app/follow/follow-controller.js"></script>
+</nav>
+<body>
 
 
-    <!-- Libraries -->
-    <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
-    <script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
-    <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+  <div ui-view class="container"></div>
+</body>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+<script src="app/app.js"></script>
+
+<!-- Controllers -->
+<script src="app/signup/signup-controller.js"></script>
+<script src="app/navigation/navigation-controller.js"></script>
+<script src="app/profile/edit-profile-controller.js"></script>
+<script src="app/main/main-controller.js"></script>
+<script src="app/follow/follow-controller.js"></script>
+
+
+<!-- Libraries -->
+<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
 
 </html>
