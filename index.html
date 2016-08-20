@@ -1,5 +1,7 @@
 <html ng-app="snt">
 <head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
   <link rel="stylesheet" href="app/css/main.css" />
 </head>
@@ -9,48 +11,45 @@
 
     <div class="row">
 
-      <div class="col-md-4">
-
+      <div class="col-xs-3 col-sm-3">
         <div class="logo">
           <a ui-sref="main">
             <img src="http://orig00.deviantart.net/fae8/f/2011/288/4/5/coca_cola_logo_png_by_ivettecaro-d4cxaok.png" alt="" />
           </a>
         </div>
-
       </div>
 
-      <div class="col-md-8 header-menu">
-
         <div ng-show="!loggedIn">
-          <input type="text" ng-model="login.email">
-          <input type="password" ng-model="login.password">
-          <button ng-click="logUserIn()">Login</button>
-          <a ui-sref="signUp">Create An Account</a>
-          
-          <div class="login-box">
+          <div class="col-xs-9 col-sm-9 header-menu">
+
+            <button id="loginButton">Login</button>
+            <a ui-sref="signUp">Create An Account</a>
+
+            <div class="login-box">
+              <label>E-mail: <input type="text" ng-model="login.email" placeholder="E-mail"></label>
+              <label>Password: <input type="password" ng-model="login.password" placeholder="Password"></label>
+              <button ng-click="logUserIn()" class="form-control btn-primary">Enter</button>
+            </div>
 
           </div>
         </div>
 
         <div ng-show="loggedIn">
-          <a ui-sref="main">Timeline</a>
-          <a ui-sref="profile">My profile</a>
-          <a ui-sref="follow">Follow Users</a>
-          <a ng-click="logOut();">Logout</a>
+          <div class="col-xs-9 col-sm-9 header-menu loggedMenu">
+            <a ui-sref="main">Timeline</a>
+            <a ui-sref="profile">My profile</a>
+            <a ui-sref="follow">Follow Users</a>
+            <a ng-click="logOut();">Logout</a>
+          </div>
         </div>
 
-      </div>
-
     </div>
-
-
   </div>
 
 </nav>
-<body>
-
 
   <div ui-view class="container"></div>
+
 </body>
 
 <script src="node_modules/angular/angular.js"></script>
@@ -69,5 +68,21 @@
 <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
 <script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
 <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  document.getElementById("loginButton").addEventListener("click", function(){
+    $('.login-box').toggleClass('visible');
+  });
+
+});
+
+
+
+</script>
 
 </html>
