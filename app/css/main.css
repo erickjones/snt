@@ -5,6 +5,10 @@ body {
     font-size: 16px;
 }
 
+a {
+  cursor: pointer;
+}
+
 label {
   font-weight: normal;
 }

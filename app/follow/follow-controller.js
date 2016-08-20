@@ -4,14 +4,13 @@
 
 		$scope.user = JSON.parse(localStorage['User-Data']);
 		console.log($scope.user);
-	    $http.get('api/users/get').then(function(response){
+	  $http.get('api/users/get').then(function(response){
 			$scope.users = response.data;
 			console.log($scope.users);
 		})
 
 		$scope.follow = function(userId, wasterId) {
-			request = { userId: userId,
-				     wasterId: wasterId};
+			request = { userId: userId, wasterId: wasterId};
 			$http.post('api/users/follow', request).then(function(){
 				console.log("following ", wasterId);
 			})
