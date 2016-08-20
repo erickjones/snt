@@ -72,6 +72,10 @@ label {
   padding: 0;
 }
 
+.welcome-message {
+  font-size: 1.4rem;
+}
+
 .thePost {
   padding-bottom: 2rem;
   padding-top: 1rem;
