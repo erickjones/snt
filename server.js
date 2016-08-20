@@ -19,7 +19,7 @@ app.use('/node_modules', express.static(__dirname + "/node_modules"));
 app.use('/uploads', express.static(__dirname + "/uploads"));
 
 app.get('/', function(req, res){
-    res.sendfile('index.html');
+    res.sendFile('index.html', { root: __dirname })
 });
 
 //Authentication
