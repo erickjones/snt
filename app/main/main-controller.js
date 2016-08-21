@@ -17,7 +17,6 @@
         }
 
         $http.post('api/waste/post', request).success(function(response){
-          console.log(response);
           $scope.wastes = response;
           getWastes(true);
         }).error(function(error){

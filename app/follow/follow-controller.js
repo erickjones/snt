@@ -12,7 +12,7 @@
 		$scope.follow = function(userId, wasterId) {
 			request = { userId: userId, wasterId: wasterId};
 			$http.post('api/users/follow', request).then(function(){
-				console.log("following ", wasterId);
+				//console.log("following ", wasterId);
 				$state.reload();
 			})
 		}
