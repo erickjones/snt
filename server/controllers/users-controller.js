@@ -25,19 +25,3 @@ module.exports.followUser = function(req, res){
 		follower.save();
 	})
 }
-
-module.exports.unfollowUser = function(req, res){
-	console.log('unfollow pushed');
-	var userId = req.body.userId,
-		wasterId = req.body.wasterId;
-
-	Users.findById(wasterId, function(err, waster){
-		waster.followers.splice({userId: userId});
-		waster.save();
-	})
-
-	Users.findById(userId, function(err, follower){
-		follower.following.splice({userId: wasterId});
-		follower.save();
-	})
-}

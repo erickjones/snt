@@ -6,21 +6,14 @@
 		//console.log($scope.user);
 	  $http.get('api/users/get').then(function(response){
 			$scope.users = response.data;
+			//console.log($scope.users);
 		})
 
 		$scope.follow = function(userId, wasterId) {
 			request = { userId: userId, wasterId: wasterId};
 			$http.post('api/users/follow', request).then(function(){
 				console.log("following ", wasterId);
-        localStorage.setItem('User-Data', JSON.stringify(response));
-			})
-		}
-
-		$scope.unfollow = function(userId, wasterId) {
-			request = { userId: userId, wasterId: wasterId};
-			$http.delete('api/users/unfollow', request).then(function(){
-				console.log("unfollowing ", wasterId);
-        localStorage.removeItem('User-Data', JSON.stringify(response));
+				$state.reload();
 			})
 		}
 
