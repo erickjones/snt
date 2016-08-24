@@ -1,11 +1,12 @@
 var Users = require('../datasets/users');
+
 module.exports.getUsers = function(req, res){
-	console.log('get users');
 	Users.find({}, function(err, usersData){
 		if (err){
 			res.error(err);
 		} else {
 			res.json(usersData);
+			console.log('get users:');
 		}
 	})
 }

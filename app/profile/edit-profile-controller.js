@@ -37,8 +37,9 @@
       }
 
       $http.post('api/profile/updateUsername', request).success(function(response){
+        console.log(response);
         localStorage.setItem('User-Data', JSON.stringify(response));
-        console.log("success");
+        console.log("successoo");
       }).error(function(error){
         console.log("error");
       })

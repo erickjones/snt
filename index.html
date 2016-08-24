@@ -27,7 +27,7 @@
 
             <div class="login-box">
               <label>E-mail: <input type="text" ng-model="login.email" placeholder="E-mail"></label>
-              <label>Password: <input type="password" ng-model="login.password" placeholder="Password"></label>
+              <label>Password: <input type="password" ng-model="login.password" placeholder="Password" ng-keypress="logUserInKeyboard($event)"></label>
               <button ng-click="logUserIn()" ui-sref="main" class="form-control btn-primary">Enter</button>
             </div>
 
@@ -39,7 +39,7 @@
             <a ui-sref="main">Timeline</a>
             <a ui-sref="profile">My profile</a>
             <a ui-sref="follow">Follow Users</a>
-            <a ng-click="logOut()">Logout</a>
+            <a ng-click="logOut()" ui-sref="main">Logout</a>
           </div>
         </div>
 

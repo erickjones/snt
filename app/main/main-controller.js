@@ -47,7 +47,6 @@
       if ($scope.incomingWastes){
         $scope.difference = $scope.incomingWastes.length - $scope.wastes.length;
       }
-      //console.log("this is working")
     }, 5000);
 
     $scope.setNewWastes = function () {
