@@ -6,22 +6,28 @@
 
 	  $http.get('api/users/get').then(function(response){
 			$scope.users = response.data;
+			console.log($scope.user.email + " is following: " + $scope.user.following);
 		})
 
 		$scope.follow = function(userId, wasterId) {
 			request = { userId: userId, wasterId: wasterId};
 
+			console.log('Request: ' + request);
+
 			$http.post('api/users/follow', request).then(function(response){
-				//console.log("following ", request.wasterId);
-				//localStorage.setItem('User-Data', JSON.stringify(response));
-				//console.log("successoo ao listar os followers");
-				//$state.reload();
+
 			});
 
-			localStorage.setItem('User-Data', JSON.stringify($scope.user.following));
-			$state.reload();
+			$scope.user.following.push({userId: wasterId});
+			localStorage.setItem('User-Data', JSON.stringify($scope.user));
 
-			//$scope.user.following.push(request.wasterId);
+			$http.get('api/users/get').then(function(response){
+				$scope.users = response.data;
+				console.log('Response.data: ' + response.data);
+				console.log('Number of following: ' + $scope.user.following.length);
+				console.log('User: ' + $scope.user.email);
+				console.log($scope.user.email + " is following: " + $scope.user.following);
+			});
 		}
 
 		$scope.checkIsFollowing = function(wasterId){
