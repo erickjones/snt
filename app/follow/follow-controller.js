@@ -6,13 +6,10 @@
 
 	  $http.get('api/users/get').then(function(response){
 			$scope.users = response.data;
-			console.log($scope.user.email + " is following: " + $scope.user.following);
 		})
 
 		$scope.follow = function(userId, wasterId) {
 			request = { userId: userId, wasterId: wasterId};
-
-			console.log('Request: ' + request);
 
 			$http.post('api/users/follow', request).then(function(response){
 
@@ -23,11 +20,24 @@
 
 			$http.get('api/users/get').then(function(response){
 				$scope.users = response.data;
-				console.log('Response.data: ' + response.data);
-				console.log('Number of following: ' + $scope.user.following.length);
-				console.log('User: ' + $scope.user.email);
-				console.log($scope.user.email + " is following: " + $scope.user.following);
 			});
+		}
+
+		$scope.unfollow = function(userId, wasterId) {
+			request = { userId: userId, wasterId: wasterId};
+
+			$http.post('api/users/unfollow', request).then(function(response){
+
+			});
+
+			var wasterIndex = $scope.user.following.map(function(obj, index) {
+			    if(obj.userId == wasterId) {
+			        return index;
+			    }
+			}).filter(isFinite);
+
+			$scope.user.following.splice(wasterIndex, 1);
+			localStorage.setItem('User-Data', JSON.stringify($scope.user));
 		}
 
 		$scope.checkIsFollowing = function(wasterId){

@@ -6,15 +6,13 @@ module.exports.getUsers = function(req, res){
 			res.error(err);
 		} else {
 			res.json(usersData);
-			console.log('get users:');
 		}
 	})
 }
 
 module.exports.followUser = function(req, res){
-	console.log('follow pushed');
 	var userId = req.body.userId,
-		wasterId = req.body.wasterId;
+	wasterId = req.body.wasterId;
 
 	Users.findById(wasterId, function(err, waster){
 		waster.followers.push({userId: userId});
@@ -25,4 +23,35 @@ module.exports.followUser = function(req, res){
 		follower.following.push({userId: wasterId});
 		follower.save();
 	})
+}
+
+module.exports.unfollowUser = function(req, res){
+
+	var userId = req.body.userId,
+	wasterId = req.body.wasterId;
+
+	Users.findById(wasterId, function(err, waster){
+
+		var followerIndex = waster.followers.map(function(obj, index) {
+				if(obj.userId == wasterId) {
+						return index;
+				}
+		}).filter(isFinite);
+
+		waster.followers.splice(followerIndex, 1);
+		waster.save();
+	});
+
+	Users.findById(userId, function(err, follower){
+
+		var wasterIndex = follower.following.map(function(obj, index) {
+				if(obj.userId == wasterId) {
+						return index;
+				}
+		}).filter(isFinite);
+
+		follower.following.splice(wasterIndex, 1);
+		follower.save();
+	});
+
 }
