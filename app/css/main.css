@@ -94,6 +94,20 @@ label {
   flex-shrink: 0;
 }
 
+.thePost-entry {
+  display: flex;
+  padding: 0;
+}
+
+.thePost-entry .profile-image {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.thePost-input {
+  flex-grow: 1;
+}
+
 .postInfo {
   padding: 0;
   padding-left: 10px;
