@@ -1,14 +1,20 @@
-<div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
-  <div class="row area">
+<div class="row area">
+
+  <div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
     <p class="welcome-message">
       Welcome, <strong>{{user.username || user.email}}</strong>. Say something:
     </p>
+  </div>
+
+  <div class="col-xs-12 col-md-8 col-md-offset-2 thePost-entry">
+    <img src="{{user.image}}" class="profile-image" />
     <textarea ng-model="newWaste"
       ng-keypress="sendWaste($event)"
-      class="form-control"
+      class="form-control thePost-input"
       placeholder="Post Waste... then press enter">
-  </textarea>
-</div>
+    </textarea>
+  </div>
+
 </div>
 
 <div class="row">
