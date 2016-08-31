@@ -1,8 +1,18 @@
-<ul>
-	<li ng-repeat="waster in users"	ng-show="user._id !== waster._id">
-		<img src="{{waster.image}}" alt="{{waster.email}}" class="profile-image" />
-		{{waster.email}}
-		<a ng-click="follow(user._id, waster._id)" ng-hide="checkIsFollowing(waster._id)">follow</a>
-		<a ng-click="unfollow(user._id, waster._id)" ng-show="checkIsFollowing(waster._id)">unfollow</a>
-	</li>
-</ul>
+<ng-include src="'/app/partials/menu.html'"></ng-include>
+
+<div class="container">
+  <div class="row area">
+  	<div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
+
+  		<ul>
+  			<li ng-repeat="waster in users"	ng-show="user._id !== waster._id">
+  				<img src="{{waster.image}}" alt="{{waster.email}}" class="profile-image" />
+  				{{waster.email}}
+  				<a ng-click="follow(user._id, waster._id)" ng-hide="checkIsFollowing(waster._id)">follow</a>
+  				<a ng-click="unfollow(user._id, waster._id)" ng-show="checkIsFollowing(waster._id)">unfollow</a>
+  			</li>
+  		</ul>
+
+  	</div>
+  </div>
+</div>

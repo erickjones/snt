@@ -1,37 +1,41 @@
-<div class="row area">
+<ng-include src="'/app/partials/menu.html'"></ng-include>
 
-  <div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
-    <p class="welcome-message">
-      Welcome, <strong>{{user.username || user.email}}</strong>. Say something:
-    </p>
+<div class="container">
+  <div class="row area">
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
+      <p class="welcome-message">
+        Welcome, <strong>{{user.username || user.email}}</strong>. Say something:
+      </p>
+    </div>
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2 thePost-entry">
+      <img src="{{user.image}}" class="profile-image" />
+      <textarea ng-model="newWaste"
+        ng-keypress="sendWaste($event)"
+        class="form-control thePost-input"
+        placeholder="Post Waste... then press enter">
+      </textarea>
+    </div>
+
   </div>
 
-  <div class="col-xs-12 col-md-8 col-md-offset-2 thePost-entry">
-    <img src="{{user.image}}" class="profile-image" />
-    <textarea ng-model="newWaste"
-      ng-keypress="sendWaste($event)"
-      class="form-control thePost-input"
-      placeholder="Post Waste... then press enter">
-    </textarea>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
+      <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">There are {{difference}} new wastes</a>
+    </div>
   </div>
 
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2 waste-section">
-    <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">There are {{difference}} new wastes</a>
-  </div>
-</div>
-
-<div class="row" ng-repeat="waste in wastes">
-  <div class="col-xs-12 col-md-8 col-md-offset-2 thePost">
-    <div class="profile-image">
-      <image ng-src="{{waste.userImage}}">
-      </div>
-      <div class="postInfo">
-        <strong>{{waste.user}}</strong>
-        <div class="thePost-date">{{waste.date | date: 'dd/MM/yyyy hh:mm'}}</div>
-        <p>{{waste.content}}</p>
+  <div class="row" ng-repeat="waste in wastes">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 thePost">
+      <div class="profile-image">
+        <image ng-src="{{waste.userImage}}">
+        </div>
+        <div class="postInfo">
+          <strong>{{waste.user}}</strong>
+          <div class="thePost-date">{{waste.date | date: 'dd/MM/yyyy hh:mm'}}</div>
+          <p>{{waste.content}}</p>
+        </div>
       </div>
     </div>
   </div>

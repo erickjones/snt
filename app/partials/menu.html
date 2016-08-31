@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
+  <div class="container menu">
+
+    <div class="row">
+
+      <div class="col-xs-3 col-sm-3">
+        <div class="logo">
+          <a ui-sref="main">
+            <img src="http://orig00.deviantart.net/fae8/f/2011/288/4/5/coca_cola_logo_png_by_ivettecaro-d4cxaok.png" alt="" />
+          </a>
+        </div>
+      </div>
+
+      <div ng-show="!loggedIn">
+        <div class="col-xs-9 col-sm-9 header-menu">
+          <a ui-sref="login">Login</a>
+          <a ui-sref="signUp">Sign up</a>
+        </div>
+      </div>
+
+      <div ng-show="loggedIn">
+        <div class="col-xs-9 col-sm-9 header-menu loggedMenu">
+          <a ui-sref="main">Timeline</a>
+          <a ui-sref="profile">My profile</a>
+          <a ui-sref="follow">Follow Users</a>
+          <a ng-click="logOut()" ui-sref="login">Logout</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</nav>

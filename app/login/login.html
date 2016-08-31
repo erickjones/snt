@@ -1,0 +1,30 @@
+<div class="login-page">
+
+    <div class="container">
+      <div class="col-md-4 col-md-offset-4">
+
+        <div class="logo">
+          <img src="http://orig00.deviantart.net/fae8/f/2011/288/4/5/coca_cola_logo_png_by_ivettecaro-d4cxaok.png" alt="" class="img-responsive" />
+        </div>
+
+
+        <div class="panel panel-default panel-login">
+          <div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3></div>
+          <div class="panel-body">
+            <form role="form" class="form-login">
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" ng-model="login.email" class="form-control" id="inputEmail" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="inputPassword">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
+                <input type="password" ng-model="login.password" placeholder="Password" ng-keypress="logUserInKeyboard($event)" type="password" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+              <button type="submit" ng-click="logUserIn()" ui-sref="main" class="btn btn-default">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

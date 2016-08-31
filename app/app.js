@@ -10,6 +10,11 @@
       templateUrl: "app/signup/signup.html",
       controller: "SignupController"
     })
+    .state('login', {
+      url: "/login",
+      templateUrl: "app/login/login.html",
+      controller: "LoginController"
+    })
     .state('editProfile', {
       url: "/edit-profile",
       templateUrl: "app/profile/edit-profile-view.html",
@@ -29,6 +34,6 @@
       url: "/follow-users",
       templateUrl: "app/follow/follow.html",
       controller: "FollowController"
-    })
+    });
   })
 }());
