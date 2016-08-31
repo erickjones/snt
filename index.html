@@ -6,49 +6,8 @@
   <link rel="stylesheet" href="app/css/main.css" />
 </head>
 
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
-  <div class="container">
+<body ui-view>
 
-    <div class="row">
-
-      <div class="col-xs-3 col-sm-3">
-        <div class="logo">
-          <a ui-sref="main">
-            <img src="http://orig00.deviantart.net/fae8/f/2011/288/4/5/coca_cola_logo_png_by_ivettecaro-d4cxaok.png" alt="" />
-          </a>
-        </div>
-      </div>
-
-        <div ng-show="!loggedIn">
-          <div class="col-xs-9 col-sm-9 header-menu">
-
-            <button id="loginButton">Login</button>
-            <a ui-sref="signUp">Create An Account</a>
-
-            <div class="login-box">
-              <label>E-mail: <input type="text" ng-model="login.email" placeholder="E-mail"></label>
-              <label>Password: <input type="password" ng-model="login.password" placeholder="Password" ng-keypress="logUserInKeyboard($event)"></label>
-              <button ng-click="logUserIn()" ui-sref="main" class="form-control btn-primary">Enter</button>
-            </div>
-
-          </div>
-        </div>
-
-        <div ng-show="loggedIn">
-          <div class="col-xs-9 col-sm-9 header-menu loggedMenu">
-            <a ui-sref="main">Timeline</a>
-            <a ui-sref="profile">My profile</a>
-            <a ui-sref="follow">Follow Users</a>
-            <a ng-click="logOut()" ui-sref="main">Logout</a>
-          </div>
-        </div>
-
-    </div>
-  </div>
-
-</nav>
-
-  <div ui-view class="container"></div>
 
 </body>
 
@@ -62,6 +21,7 @@
 <script src="app/profile/edit-profile-controller.js"></script>
 <script src="app/main/main-controller.js"></script>
 <script src="app/follow/follow-controller.js"></script>
+<script src="app/login/login-controller.js"></script>
 
 
 <!-- Libraries -->
@@ -75,9 +35,9 @@
 
 $(document).ready(function() {
 
-  document.getElementById("loginButton").addEventListener("click", function(){
-    $('.login-box').toggleClass('visible');
-  });
+  // document.getElementById("loginButton").addEventListener("click", function(){
+  //   $('.login-box').toggleClass('visible');
+  // });
 
 });
 

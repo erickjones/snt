@@ -1,23 +1,25 @@
+<ng-include src="'/app/partials/menu.html'"></ng-include>
 
-
-<div class="col-xs-12 col-md-8 col-md-offset-2">
-  <div class="row profile-box area">
-    <h2>Profile page</h2>
-    <div class="profile-image">
-      <img src="{{user.image}}" alt="" />
+<div class="container">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="row profile-box area">
+      <h2>Profile page</h2>
+      <div class="profile-image">
+        <img src="{{user.image}}" alt="" />
+      </div>
+    </div>
+    <div class="row profile-data area">
+      <p>
+        <strong>Name: </strong>{{user.username}}<br>
+        <strong>Email: </strong>{{user.email}}<br>
+        <strong>About: </strong>{{user.bio}}
+      </p>
     </div>
   </div>
-  <div class="row profile-data area">
-    <p>
-      <strong>Name: </strong>{{user.username}}<br>
-      <strong>Email: </strong>{{user.email}}<br>
-      <strong>About: </strong>{{user.bio}}
-    </p>
-  </div>
-</div>
 
-<div class="col-xs-12 col-md-8 col-md-offset-2">
-  <div class="row area">
-    <button ui-sref="editProfile">Edit Profile</button>
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="row area">
+      <button ui-sref="editProfile">Edit Profile</button>
+    </div>
   </div>
 </div>

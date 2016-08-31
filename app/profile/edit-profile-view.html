@@ -1,19 +1,23 @@
-<div class="col-sm-2 col-sm-offset-2">
-  <div class="row area">
-    <div class="profile-image">
-      <img src="{{user.image}}" alt="" />
-    </div>
-    <button ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-      accept="image/*">Change image</div>
-    </button>
-  </div>
-</div>
+<ng-include src="'/app/partials/menu.html'"></ng-include>
 
-<div class="col-sm-6">
-  <div class="row area">
-      <input class="form-control" ng-model="user.username" ng-blur="updateUsername()" placeholder="{{user.name}}">
+<div class="container">
+  <div class="col-sm-2 col-sm-offset-2">
+    <div class="row area">
+      <div class="profile-image">
+        <img src="{{user.image}}" alt="" />
+      </div>
+      <button ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+        accept="image/*">Change image</div>
+      </button>
+    </div>
   </div>
-  <div class="row area">
-      <textarea class="form-control" ng-model="user.bio" ng-blur="updateBio()" placeholder="Write about you"></textarea>
+
+  <div class="col-sm-6">
+    <div class="row area">
+        <input class="form-control" ng-model="user.username" ng-blur="updateUsername()" placeholder="{{user.name}}">
+    </div>
+    <div class="row area">
+        <textarea class="form-control" ng-model="user.bio" ng-blur="updateBio()" placeholder="Write about you"></textarea>
+    </div>
   </div>
 </div>
